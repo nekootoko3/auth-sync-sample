@@ -8,7 +8,7 @@ export default function Page(): JSX.Element {
     localStorage.setItem("tenantName", "tenant-b");
   };
   const logInToTenantC = () => {
-    localStorage.setItem("tenantName", "tenant-b");
+    localStorage.setItem("tenantName", "tenant-c");
   };
   const logOut = () => {
     localStorage.removeItem("tenantName");
