@@ -18,6 +18,11 @@ export default function Page(): JSX.Element {
 
 const receiveAuthMessage = (event: MessageEvent<{ tenantName: string }>) => {
   if (event.origin !== authOrigin) return;
+  if (typeof event.data.tenantName === "undefined") return;
 
-  localStorage.setItem("tenantName", event.data.tenantName);
+  if (event.data.tenantName) {
+    localStorage.setItem("tenantName", event.data.tenantName);
+  } else {
+    localStorage.removeItem("tenantName");
+  }
 };

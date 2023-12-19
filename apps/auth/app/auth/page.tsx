@@ -12,7 +12,7 @@ export default function Page(): JSX.Element {
   const docsIframeRef = useRef<HTMLIFrameElement>(null);
   const webIframeRef = useRef<HTMLIFrameElement>(null);
 
-  const postTenantNameToServices = (tenantName: string) => {
+  const syncTenantNameWithServices = (tenantName: string) => {
     docsIframeRef.current?.contentWindow?.postMessage(
       { tenantName },
       docsOrigin
@@ -21,13 +21,16 @@ export default function Page(): JSX.Element {
   };
 
   const logInToTenantA = () => {
-    postTenantNameToServices("tenant-a");
+    syncTenantNameWithServices("tenant-a");
   };
   const logInToTenantB = () => {
-    postTenantNameToServices("tenant-b");
+    syncTenantNameWithServices("tenant-b");
   };
   const logInToTenantC = () => {
-    postTenantNameToServices("tenant-c");
+    syncTenantNameWithServices("tenant-c");
+  };
+  const logOut = () => {
+    syncTenantNameWithServices("");
   };
 
   return (
@@ -45,6 +48,10 @@ export default function Page(): JSX.Element {
 
         <div>
           <button onClick={logInToTenantC}>テナントCにログイン</button>
+        </div>
+
+        <div>
+          <button onClick={logOut}>ログアウト</button>
         </div>
 
         <iframe
