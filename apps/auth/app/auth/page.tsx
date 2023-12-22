@@ -18,6 +18,8 @@ export default function Page(): JSX.Element {
       docsOrigin
     );
     webIframeRef.current?.contentWindow?.postMessage({ tenantName }, webOrigin);
+
+    localStorage.setItem("tenantName", tenantName);
   };
 
   const logInToTenantA = () => {

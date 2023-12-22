@@ -33,10 +33,11 @@ auth で認証状態を変更すると docs と web で変更に応じて画面�
 
 - auth
   - http://localhost:3000/auth で認証状態を変更できます。
+  - /embedded のページは web の /embed-auth のページに埋め込まれた iframe で描画されており、認証情報を同期する役割を担っています。
 - docs
-  - http://localhost:3001 を立ち上げておくと、認証状態が変わると画面がリロードされます。
+  - http://localhost:3001を立ち上げておくと、認証状態が変わると画面がリロードされます。
 - web
   - http://localhost:3002 を立ち上げておくと、認証状態が変わると画面がリロードされます。
 
-docs と web には /auth というパスも存在しています。
+docs と web には /auth というパスが存在しています。
 このページは auth 内の iframe で使われており、auth から認証状態の変更があったことを受け取って、localStorage の変更を行うためのページになっています。
